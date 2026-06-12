@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     responseBlock.innerHTML = `
                         I am <span class="terminal-yellow" style="font-weight:600;">Majoju Vaishnavi</span>, a high-achieving Computer Science & Engineering student at the 
                         <span class="terminal-accent">University College of Engineering, Osmania University (UCE, OU)</span>, graduating in 2027.<br><br>
-                        Currently working as a <span class="terminal-pink">Software Engineer Intern</span>, building scalable backend APIs, structural React components, 
+                        Currently working as a <span class="terminal-pink">Mobile Application Build Intern at IRA labs</span>, building scalable backend APIs, structural React components, 
                         and automated system tests. My core focus lies in merging mathematical algorithms (DSA) with high-efficiency Full-Stack applications 
                         and robust Artificial Intelligence models.
                     `;
