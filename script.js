@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div style="font-weight: 600; color: var(--accent-1); margin-bottom: 6px;">Available Profile Commands:</div>
                         <span class="terminal-green">about</span>    - Prints a detailed professional introduction.<br>
                         <span class="terminal-green">skills</span>   - Displays engineering expertise levels.<br>
-                        <span class="terminal-green">projects</span> - Summarizes featured high-end projects.<br>
+                        <span class="terminal-green">projects</span> - Summarizes featured projects.<br>
                         <span class="terminal-green">clear</span>    - Clears the console output screen.<br>
                         <span class="terminal-green">secret</span>   - Run a secure core authentication sequence. 🚀
                     `;
@@ -249,36 +249,34 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                 case 'about':
                     responseBlock.innerHTML = `
-                        I am <span class="terminal-yellow" style="font-weight:600;">Majoju Vaishnavi</span>, a high-achieving Computer Science & Engineering student at the 
+                        I am <span class="terminal-yellow" style="font-weight:600;">Majoju Vaishnavi</span>, a Computer Science & Engineering student at the 
                         <span class="terminal-accent">University College of Engineering, Osmania University (UCE, OU)</span>, graduating in 2027.<br><br>
-                        Currently working as a <span class="terminal-pink">Mobile Application Build Intern at IRA labs</span>, building scalable backend APIs, structural React components, 
-                        and automated system tests. My core focus lies in merging mathematical algorithms (DSA) with high-efficiency Full-Stack applications 
-                        and robust Artificial Intelligence models.
+                        Currently working as a <span class="terminal-pink">Mobile Application Build Intern at IRA labs</span>, building backend APIs, React components, 
+                        and automated system tests. My core focus lies in merging mathematical algorithms (DSA) with Full-Stack applications 
+                        and Artificial Intelligence models.
                     `;
                     break;
                     
                 case 'skills':
                     responseBlock.innerHTML = `
-                        <div style="font-weight: 600; color: var(--accent-1); margin-bottom: 8px;">Technical Capability Matrix:</div>
-                        <span class="terminal-yellow">Languages:</span>  Java (OOP, DS), Python, JavaScript (ES6+)<br>
-                        <span class="terminal-yellow">Frameworks:</span> React.js, Next.js, Express.js, Node.js, Flask, TailwindCSS<br>
-                        <span class="terminal-yellow">Databases:</span>  MySQL, MongoDB, SQLite<br>
-                        <span class="terminal-yellow">Core CS:</span>    Data Structures, Operating Systems, Computer Networks, OOP Design Patterns<br>
-                        <span class="terminal-yellow">Tools:</span>      Git, GitHub, RESTful APIs, Figma, LaTeX, VSCode
+                        <div style="font-weight: 600; color: var(--accent-1); margin-bottom: 8px;">Technical Skills:</div>
+                        <span class="terminal-yellow">Proficient:</span> Java, Python, JavaScript, React.js, Next.js, DSA & OOP, Git/GitHub, REST APIs<br>
+                        <span class="terminal-yellow">Familiar:</span>   Node.js, Express.js, TailwindCSS, MongoDB, MySQL, SQLite, Flask, OS, Networks, Figma<br>
+                        <span class="terminal-yellow">Exploring:</span>  Generative AI (Gemini API), RAG Architectures, Flutter, React Native
                     `;
                     break;
                     
                 case 'projects':
                     responseBlock.innerHTML = `
                         <div style="font-weight: 600; color: var(--accent-1); margin-bottom: 8px;">Featured Projects:</div>
-                        1. <span class="terminal-accent" style="font-weight:600;">NexisAI — Multi-Agent Solver Workspace</span> (AI & ML)<br>
-                        &nbsp;&nbsp;&nbsp;Complex task solver orchestrating LLM agents with RAG. Tech: React, Node, Python, MongoDB.<br>
-                        2. <span class="terminal-accent" style="font-weight:600;">AI PCOS Tracker & Personalization Platform</span> (AI & ML)<br>
-                        &nbsp;&nbsp;&nbsp;Clinical risk modeling with dynamically generated Gemini-3.5 AI diet, yoga & workout programs. Tech: Python, React, Express, MongoDB.<br>
-                        3. <span class="terminal-accent" style="font-weight:600;">NexLink — URL Shortener & Analytics Suite</span> (Web Applications)<br>
-                        &nbsp;&nbsp;&nbsp;Serverless client-side URL shortener with custom alias hashing, instant QR code rendering, and local analytics dashboard. Tech: HTML5, CSS3, JS, LocalStorage.<br>
-                        4. <span class="terminal-accent" style="font-weight:600;">Offline-First Women Safety App</span> (Mobile Solutions)<br>
-                        &nbsp;&nbsp;&nbsp;Hands-free voice trigger SOS & background GPS mapping. Tech: Java, Android SDK, Flask APIs.
+                        1. <span class="terminal-accent" style="font-weight:600;">NexisAI — Multi-Agent Orchestrator</span> (AI & ML)<br>
+                        &nbsp;&nbsp;&nbsp;An orchestrator that coordinates multi-agent LLM teams using Python and Node.js.<br>
+                        2. <span class="terminal-accent" style="font-weight:600;">PCOS Tracker & Personalization Platform</span> (AI & ML)<br>
+                        &nbsp;&nbsp;&nbsp;Clinical risk evaluation with dynamically generated symptom-driven nutrition and exercise plans. Tech: Python, React, MongoDB.<br>
+                        3. <span class="terminal-accent" style="font-weight:600;">SnapLink — URL Shortener</span> (Web Applications)<br>
+                        &nbsp;&nbsp;&nbsp;A full-stack URL shortening service features Base62 encoding and token-bucket rate limiting. Tech: Java, Spring Boot, PostgreSQL, JavaScript.<br>
+                        4. <span class="terminal-accent" style="font-weight:600;">Women Safety App</span> (Mobile Solutions)<br>
+                        &nbsp;&nbsp;&nbsp;Crisis monitor providing voice trigger SOS and background GPS mapping. Tech: Java, Android SDK, Flask.
                     `;
                     break;
                     

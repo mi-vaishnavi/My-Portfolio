@@ -14,7 +14,7 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Majoju Vaishnavi | Software Engineer Portfolio">
-    <meta property="og:description" content="Portfolio showcasing elite technical projects, full-stack tools, and CS fundamentals from UCE, Osmania University.">
+    <meta property="og:description" content="Portfolio showcasing software engineering projects, full-stack tools, and CS fundamentals from UCE, Osmania University.">
     <meta property="og:image" content="assets/portfolio_preview.png">
     
     <!-- Twitter -->
@@ -49,6 +49,7 @@
                     <li><a href="#skills" id="lnk-skills">Skills</a></li>
                     <li><a href="#experience" id="lnk-exp">Timeline</a></li>
                     <li><a href="#contact" id="lnk-contact">Contact</a></li>
+                    <li><a href="assets/Vaishnavi_Majoju_Resume.pdf" download class="nav-resume-btn" id="lnk-resume">Resume</a></li>
                 </ul>
             </nav>
 
@@ -132,6 +133,15 @@
             
             <div class="hero-actions" id="hero-btns">
                 <a href="#projects" class="btn btn-primary" id="btn-view-work">View My Work</a>
+                <a href="assets/Vaishnavi_Majoju_Resume.pdf" download class="btn btn-secondary" id="btn-resume">
+                    <!-- Download Icon SVG -->
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle;">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download Resume
+                </a>
                 <a href="#contact" class="btn btn-secondary" id="btn-get-touch">Get in Touch</a>
             </div>
         </div>
@@ -186,7 +196,7 @@
         <div class="container">
             <div class="section-hdr" id="proj-hdr-group">
                 <h2>Featured Engineering Projects</h2>
-                <p>Demonstrating full-stack capabilities, artificial intelligence integrations, and mobile engineering resilience.</p>
+                <p>A collection of applications spanning web development, machine learning, and mobile systems.</p>
             </div>
 
             <!-- Categories Filter -->
@@ -275,7 +285,8 @@
                     </div>
                     <h3 class="project-title">SnapLink— URL Shortener</h3>
                     <p class="project-desc">
-A full-stack URL shortening service built with Java 17, Spring Boot 3, and PostgreSQL. Engineered for scalability with Base62 encoding of auto-incremented database IDs, custom alias support, and sophisticated rate-limiting architecture using token bucket algorithms.                    </p>
+A full-stack URL shortening service built with Java 17, Spring Boot 3, and PostgreSQL. Features Base62 encoding of auto-incremented database IDs, custom alias support, and rate-limiting using token bucket algorithms.
+                    </p>
                     <div class="project-tags">
                         <span class="tech-badge">Java</span>
                         <span class="tech-badge">Spring Boot</span>
@@ -305,13 +316,10 @@ A full-stack URL shortening service built with Java 17, Spring Boot 3, and Postg
                     </div>
                     <h3 class="project-title">NexisAI — Multi-Agent Orchestrator</h3>
                     <p class="project-desc">
-                        A robust orchestration system that coordinates multi-agent LLM teams using Python and Node.js. Incorporates RAG architectures, custom knowledge retrieval pipelines, and interactive workspaces to coordinate high-complexity reasoning tasks.
+                        An orchestrator that coordinates multi-agent LLM teams using Python and Node.js. Integrates RAG, custom knowledge retrieval pipelines, and interactive workspaces.
                     </p>
                     <div class="project-tags">
                         <span class="tech-badge">Python</span>
-                        <!-- <span class="tech-badge">Node.js</span>
-                        <span class="tech-badge">React.js</span>
-                        <span class="tech-badge">MongoDB</span> -->
                         <span class="tech-badge">RAG</span>
                     </div>
                     <div class="project-links">
@@ -319,11 +327,6 @@ A full-stack URL shortening service built with Java 17, Spring Boot 3, and Postg
                             <!-- External Link SVG -->
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                             Live Demo
-                        </a>
-                        <a href="#" class="proj-link" id="nexis-lnk-git">
-                            <!-- Git Branch SVG -->
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                            Codebase
                         </a>
                     </div>
                 </div>
@@ -373,171 +376,63 @@ A full-stack URL shortening service built with Java 17, Spring Boot 3, and Postg
             </div>
 
             <div class="skills-wrapper">
-                <!-- Group 1: Programming Languages -->
-                <div class="glass-panel skills-category" id="skills-cat-languages">
+                <!-- Group 1: Proficient -->
+                <div class="glass-panel skills-category" id="skills-cat-proficient">
                     <h3>
-                        <!-- Code Brackets Icon -->
+                        <!-- Star Icon -->
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="16 18 22 12 16 6"></polyline>
-                            <polyline points="8 6 2 12 8 18"></polyline>
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                         </svg>
-                        Languages
+                        Proficient
                     </h3>
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Java (Core & OOP)</span>
-                                <span class="skill-perc">90%</span>
-                            </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-percentage="90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Python</span>
-                                <span class="skill-perc">85%</span>
-                            </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-percentage="85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">JavaScript (ES6+)</span>
-                                <span class="skill-perc">85%</span>
-                            </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-percentage="85%"></div>
-                            </div>
-                        </div>
+                    <div class="skills-tags-container">
+                        <span class="skill-tag">Java (Core & OOP)</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript (ES6+)</span>
+                        <span class="skill-tag">React.js & Next.js</span>
+                        <span class="skill-tag">DSA & OOP</span>
+                        <span class="skill-tag">Git & GitHub</span>
+                        <span class="skill-tag">REST APIs</span>
                     </div>
                 </div>
 
-                <!-- Group 2: Core Concepts -->
-                <div class="glass-panel skills-category" id="skills-cat-core">
+                <!-- Group 2: Familiar -->
+                <div class="glass-panel skills-category" id="skills-cat-familiar">
                     <h3>
-                        <!-- Server Rack Icon -->
+                        <!-- Check-Square Icon -->
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                            <line x1="6" y1="6" x2="6.01" y2="6"></line>
-                            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                            <polyline points="9 11 12 14 22 4"></polyline>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
                         </svg>
-                        Core CS Concepts
+                        Familiar
                     </h3>
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">DSA & OOP</span>
-                                <span class="skill-perc">90%</span>
-                            </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-percentage="90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Operating Systems</span>
-                                <span class="skill-perc">80%</span>
-                            </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-percentage="80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Computer Networks</span>
-                                <span class="skill-perc">80%</span>
-                            </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-percentage="80%"></div>
-                            </div>
-                        </div>
+                    <div class="skills-tags-container">
+                        <span class="skill-tag">Node.js & Express.js</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">MySQL & MongoDB</span>
+                        <span class="skill-tag">SQLite</span>
+                        <span class="skill-tag">TailwindCSS</span>
+                        <span class="skill-tag">Operating Systems</span>
+                        <span class="skill-tag">Computer Networks</span>
+                        <span class="skill-tag">Figma</span>
                     </div>
                 </div>
 
-                <!-- Group 3: Web Frameworks -->
-                <div class="glass-panel skills-category" id="skills-cat-frameworks">
+                <!-- Group 3: Exploring -->
+                <div class="glass-panel skills-category" id="skills-cat-exploring">
                     <h3>
-                        <!-- Layers Layout Icon -->
+                        <!-- Compass / Search Icon -->
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                            <polyline points="2 17 12 22 22 17"></polyline>
-                            <polyline points="2 12 12 17 22 12"></polyline>
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
                         </svg>
-                        Frameworks
+                        Exploring
                     </h3>
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">React.js & Next.js</span>
-                                <span class="skill-perc">85%</span>
-                            </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-percentage="85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Node.js & Express.js</span>
-                                <span class="skill-perc">80%</span>
-                            </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-percentage="80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">TailwindCSS</span>
-                                <span class="skill-perc">90%</span>
-                            </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-percentage="90%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Group 4: Databases & Tools -->
-                <div class="glass-panel skills-category" id="skills-cat-tools">
-                    <h3>
-                        <!-- Terminal / Database Icon -->
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 22c5.523 0 10-2.239 10-5V5c0-2.761-4.477-5-10-5S2 2.239 2 5v12c0 2.761 4.477 5 10 5z"></path>
-                            <path d="M2 5c0 2.761 4.477 5 10 5s10-2.239 10-5"></path>
-                            <path d="M2 11c0 2.761 4.477 5 10 5s10-2.239 10-5"></path>
-                        </svg>
-                        Tools & Databases
-                    </h3>
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Git & GitHub</span>
-                                <span class="skill-perc">90%</span>
-                            </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-percentage="90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">MySQL & MongoDB</span>
-                                <span class="skill-perc">85%</span>
-                            </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-percentage="85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">REST APIs & Figma</span>
-                                <span class="skill-perc">85%</span>
-                            </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-percentage="85%"></div>
-                            </div>
-                        </div>
+                    <div class="skills-tags-container">
+                        <span class="skill-tag">Generative AI Integration</span>
+                        <span class="skill-tag">RAG Architectures</span>
+                        <span class="skill-tag">Flutter</span>
+                        <span class="skill-tag">React Native</span>
                     </div>
                 </div>
             </div>
@@ -580,7 +475,7 @@ A full-stack URL shortening service built with Java 17, Spring Boot 3, and Postg
                         <div class="timeline-period">2023 — 2027</div>
                         <ul class="timeline-details">
                             <li>Focusing on Data Structures & Algorithms, Object-Oriented Programming, and Networks.</li>
-                            <li>Achieving stellar academic records at one of Osmania University's most prestigious campuses.</li>
+                            <li>Maintaining a 9.0/10 CGPA.</li> <!-- Feel free to update with your actual CGPA if different -->
                             <li>Leading software development tasks in multiple college hackathons and technical symposiums.</li>
                         </ul>
                     </div>
