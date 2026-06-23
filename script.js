@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Apply theme attribute to html document
                 if (themeId === 'oceanic') {
                     document.documentElement.removeAttribute('data-theme');
-                    themeDesc.innerText = "Oceanic Depth";
+                    themeDesc.innerText = "Minimal Slate";
                     localStorage.setItem('portfolio-theme', 'oceanic');
                 } else {
                     document.documentElement.setAttribute('data-theme', themeId);
@@ -249,11 +249,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                 case 'about':
                     responseBlock.innerHTML = `
-                        I am <span class="terminal-yellow" style="font-weight:600;">Majoju Vaishnavi</span>, a Computer Science & Engineering student at the 
-                        <span class="terminal-accent">University College of Engineering, Osmania University (UCE, OU)</span>, graduating in 2027.<br><br>
-                        Currently working as a <span class="terminal-pink">Mobile Application Build Intern at IRA labs</span>, building backend APIs, React components, 
-                        and automated system tests. My core focus lies in merging mathematical algorithms (DSA) with Full-Stack applications 
-                        and Artificial Intelligence models.
+                        I am <span class="terminal-yellow" style="font-weight:600;">Majoju Vaishnavi</span>, a final-year Computer Science & Engineering student at the 
+                        <span class="terminal-accent">University College of Engineering, Osmania University (UCE, OU)</span>, graduating in 2027 (CGPA: 9.0/10).<br><br>
+                        Currently, I am working as a <span class="terminal-pink" style="font-weight:600;">Mobile Application Build Intern at IRA labs</span>, where I build cross-platform mobile application prototypes and integrate AI tooling into mobile build pipelines using Flutter and React Native framework architectures.<br><br>
+                        My core focus lies in combining solid Computer Science fundamentals (DSA & OOP) with full-stack and mobile solutions to engineer high-performance, production-grade applications.
                     `;
                     break;
                     
