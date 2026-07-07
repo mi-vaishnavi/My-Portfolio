@@ -511,11 +511,416 @@ document.addEventListener('DOMContentLoaded', () => {
             field.style.boxShadow = '';
             field.removeAttribute('title');
         };
-
         const escapeHTML = (text) => {
             const div = document.createElement('div');
             div.innerText = text;
             return div.innerHTML;
         };
+    }
+
+    // ==========================================
+    // 9. CUSTOM EYE CURSOR TRACKING
+    // ==========================================
+    const customCursor = document.getElementById('custom-cursor');
+    const cursorEye = customCursor ? customCursor.querySelector('.cursor-eye') : null;
+    const cursorPupil = customCursor ? customCursor.querySelector('.cursor-pupil') : null;
+
+    if (customCursor && cursorEye && cursorPupil) {
+        let mouseX = 0;
+        let mouseY = 0;
+        let eyeX = 0;
+        let eyeY = 0;
+        let lastMouseX = 0;
+        let lastMouseY = 0;
+        let currentOffsetX = 0;
+        let currentOffsetY = 0;
+        let targetOffsetX = 0;
+        let targetOffsetY = 0;
+        let cursorVisible = false;
+        let touchDevice = false;
+
+        // Smoothly interpolate position (lerp)
+        const lerp = (start, end, amt) => (1 - amt) * start + amt * end;
+
+        const updateCursorPosition = () => {
+            if (touchDevice) return;
+
+            // Lerp outer eye container towards target mouse position
+            eyeX = lerp(eyeX, mouseX, 0.2);
+            eyeY = lerp(eyeY, mouseY, 0.2);
+
+            // Apply translation to the main cursor wrapper
+            customCursor.style.transform = `translate3d(${eyeX}px, ${eyeY}px, 0)`;
+
+            // Calculate mouse velocity/direction of motion
+            const mdx = mouseX - lastMouseX;
+            const mdy = mouseY - lastMouseY;
+            const mDist = Math.sqrt(mdx * mdx + mdy * mdy);
+
+            // Only update target offset if there is active mouse movement
+            if (mDist > 0.5) {
+                const maxOffset = 5; // Maximum offset distance inside the eye
+                targetOffsetX = (mdx / mDist) * maxOffset;
+                targetOffsetY = (mdy / mDist) * maxOffset;
+            }
+
+            // Smoothly interpolate the current pupil offset towards target direction
+            currentOffsetX = lerp(currentOffsetX, targetOffsetX, 0.08);
+            currentOffsetY = lerp(currentOffsetY, targetOffsetY, 0.08);
+
+            // Move the pupil element relative to its default center position
+            cursorPupil.style.transform = `translate(calc(-50% + ${currentOffsetX}px), calc(-50% + ${currentOffsetY}px))`;
+
+            // Save last positions for velocity calculation
+            lastMouseX = mouseX;
+            lastMouseY = mouseY;
+
+            requestAnimationFrame(updateCursorPosition);
+        };
+
+        // Capture mouse moves
+        document.addEventListener('mousemove', (e) => {
+            // If touch interface was activated, switch back to mouse mode if mouse movement is detected
+            if (touchDevice) {
+                touchDevice = false;
+                document.body.classList.add('has-custom-cursor');
+                customCursor.style.opacity = '1';
+                requestAnimationFrame(updateCursorPosition);
+            }
+
+            // Initialize lastMouse position on first move to prevent velocity spikes
+            if (!cursorVisible) {
+                lastMouseX = e.clientX;
+                lastMouseY = e.clientY;
+                eyeX = e.clientX;
+                eyeY = e.clientY;
+                customCursor.style.opacity = '1';
+                cursorVisible = true;
+                document.body.classList.add('has-custom-cursor');
+            }
+
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Handle page focus/hover entries
+        document.addEventListener('mouseenter', () => {
+            if (!touchDevice) {
+                customCursor.style.opacity = '1';
+                cursorVisible = true;
+                document.body.classList.add('has-custom-cursor');
+            }
+        });
+
+        document.addEventListener('mouseleave', () => {
+            customCursor.style.opacity = '0';
+            cursorVisible = false;
+            document.body.classList.remove('has-custom-cursor');
+        });
+
+        // Hide custom cursor on mobile touch interactions
+        document.addEventListener('touchstart', () => {
+            touchDevice = true;
+            cursorVisible = false;
+            customCursor.style.opacity = '0';
+            document.body.classList.remove('has-custom-cursor');
+        });
+
+        // Event delegation for cursor hover states (normal interactive vs text inputs)
+        document.addEventListener('mouseover', (e) => {
+            if (touchDevice) return;
+
+            const target = e.target;
+            if (!target) return;
+
+            // Check if hovering over text inputs
+            if (target.closest('input[type="text"], input[type="email"], textarea')) {
+                customCursor.classList.add('text-hovered');
+                customCursor.classList.remove('hovered');
+            }
+            // Check if hovering over standard links, buttons, and interactive cards
+            else if (target.closest('a, button, [role="button"], .theme-option, .project-card, .filter-btn, .logo')) {
+                customCursor.classList.add('hovered');
+                customCursor.classList.remove('text-hovered');
+            }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+            if (touchDevice) return;
+
+            const related = e.relatedTarget;
+            
+            // Remove text hovered class if we moved out of text input
+            if (!related || !related.closest('input[type="text"], input[type="email"], textarea')) {
+                customCursor.classList.remove('text-hovered');
+            }
+            
+            // Remove hover class if we moved out of interactive buttons/links
+            if (!related || !related.closest('a, button, [role="button"], .theme-option, .project-card, .filter-btn, .logo')) {
+                customCursor.classList.remove('hovered');
+            }
+        });
+
+        // Start render loop
+        requestAnimationFrame(updateCursorPosition);
+    }
+
+    // ==========================================
+    // 10. TECH BACKGROUND CANVAS
+    // ==========================================
+    const techCanvas = document.getElementById('tech-bg-canvas');
+    if (techCanvas) {
+        const ctx = techCanvas.getContext('2d');
+
+        // -- Helper: read CSS variable accent color --
+        function getAccentRgb() {
+            const raw = getComputedStyle(document.documentElement)
+                .getPropertyValue('--accent-1-rgb').trim();
+            if (raw) {
+                const parts = raw.split(',').map(v => parseInt(v.trim(), 10));
+                if (parts.length === 3) return parts;
+            }
+            return [37, 99, 235]; // fallback: Slate Blue
+        }
+
+        // -- Resize canvas to fill viewport --
+        function resizeCanvas() {
+            techCanvas.width = window.innerWidth;
+            techCanvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            initParticles();
+        });
+
+        // -- Particle configuration --
+        const PARTICLE_COUNT = 55;
+        const MAX_CONNECT_DIST = 160;
+        const MOUSE_REPEL_DIST = 120;
+        let particles = [];
+        let mousePos = { x: -9999, y: -9999 };
+
+        document.addEventListener('mousemove', (e) => {
+            mousePos.x = e.clientX;
+            mousePos.y = e.clientY;
+        });
+
+        class Particle {
+            constructor() { this.reset(true); }
+            reset(random) {
+                this.x = Math.random() * techCanvas.width;
+                this.y = random
+                    ? Math.random() * techCanvas.height
+                    : -10;
+                this.baseX = this.x;
+                this.baseY = this.y;
+                this.vx = (Math.random() - 0.5) * 0.35;
+                this.vy = (Math.random() - 0.5) * 0.35;
+                this.radius = Math.random() * 1.8 + 0.6;
+                this.opacity = Math.random() * 0.5 + 0.25;
+                this.pulseSpeed = Math.random() * 0.02 + 0.008;
+                this.pulsePhase = Math.random() * Math.PI * 2;
+                // Circuit node flag: ~25% of particles are "nodes" (slightly bigger, ring shape)
+                this.isNode = Math.random() < 0.25;
+                if (this.isNode) this.radius = Math.random() * 1.4 + 1.8;
+            }
+            update(t) {
+                // Gentle drift
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Soft mouse repulsion
+                const dx = this.x - mousePos.x;
+                const dy = this.y - mousePos.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < MOUSE_REPEL_DIST) {
+                    const force = (MOUSE_REPEL_DIST - dist) / MOUSE_REPEL_DIST;
+                    this.x += dx / dist * force * 1.2;
+                    this.y += dy / dist * force * 1.2;
+                }
+
+                // Wrap around edges with a small buffer
+                const buf = 40;
+                if (this.x < -buf) this.x = techCanvas.width + buf;
+                else if (this.x > techCanvas.width + buf) this.x = -buf;
+                if (this.y < -buf) this.y = techCanvas.height + buf;
+                else if (this.y > techCanvas.height + buf) this.y = -buf;
+
+                // Pulsing opacity
+                this.currentOpacity = this.opacity + Math.sin(t * this.pulseSpeed + this.pulsePhase) * 0.12;
+            }
+            draw(r, g, b) {
+                ctx.save();
+                ctx.globalAlpha = Math.max(0, Math.min(1, this.currentOpacity));
+                if (this.isNode) {
+                    // Hollow ring node with glow
+                    ctx.shadowColor = `rgba(${r},${g},${b},0.5)`;
+                    ctx.shadowBlur = 8;
+                    ctx.strokeStyle = `rgba(${r},${g},${b},${this.currentOpacity})`;
+                    ctx.lineWidth = 0.8;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Small solid inner dot
+                    ctx.fillStyle = `rgba(${r},${g},${b},${this.currentOpacity * 0.6})`;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius * 0.35, 0, Math.PI * 2);
+                    ctx.fill();
+                } else {
+                    ctx.shadowColor = `rgba(${r},${g},${b},0.3)`;
+                    ctx.shadowBlur = 5;
+                    ctx.fillStyle = `rgba(${r},${g},${b},${this.currentOpacity})`;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                ctx.restore();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                particles.push(new Particle());
+            }
+        }
+        initParticles();
+
+        // -- Circuit trace path class --
+        // Draws an L-shaped or Z-shaped line that slowly crawls across the canvas
+        const CIRCUIT_COUNT = 6;
+        class CircuitTrace {
+            constructor() { this.init(); }
+            init() {
+                // Starting point
+                this.x1 = Math.random() * techCanvas.width;
+                this.y1 = Math.random() * techCanvas.height;
+                // Random axis-aligned length
+                this.len1 = Math.random() * 120 + 60;
+                this.len2 = Math.random() * 80 + 40;
+                this.horiz = Math.random() < 0.5; // first segment horizontal?
+                this.speed = Math.random() * 0.003 + 0.001;
+                this.progress = 0; // 0 → 1 draw in, 1 → 2 draw out
+                this.opacity = Math.random() * 0.12 + 0.06;
+                this.lifetime = Math.random() * 300 + 200; // frames
+                this.age = Math.floor(Math.random() * this.lifetime); // stagger
+                this.vx = (Math.random() - 0.5) * 0.15;
+                this.vy = (Math.random() - 0.5) * 0.15;
+            }
+            update() {
+                this.age++;
+                this.x1 += this.vx;
+                this.y1 += this.vy;
+                if (this.age > this.lifetime) this.init();
+            }
+            draw(r, g, b) {
+                const prog = this.age / this.lifetime;
+                // Fade in first quarter, solid middle, fade out last quarter
+                let alpha = this.opacity;
+                if (prog < 0.2) alpha *= prog / 0.2;
+                else if (prog > 0.8) alpha *= (1 - prog) / 0.2;
+
+                ctx.save();
+                ctx.strokeStyle = `rgba(${r},${g},${b},${alpha})`;
+                ctx.lineWidth = 0.8;
+                ctx.lineCap = 'square';
+                ctx.shadowColor = `rgba(${r},${g},${b},${alpha * 1.5})`;
+                ctx.shadowBlur = 4;
+                ctx.beginPath();
+                if (this.horiz) {
+                    // Horizontal then vertical
+                    ctx.moveTo(this.x1, this.y1);
+                    ctx.lineTo(this.x1 + this.len1, this.y1);
+                    ctx.lineTo(this.x1 + this.len1, this.y1 + this.len2);
+                } else {
+                    // Vertical then horizontal
+                    ctx.moveTo(this.x1, this.y1);
+                    ctx.lineTo(this.x1, this.y1 + this.len1);
+                    ctx.lineTo(this.x1 + this.len2, this.y1 + this.len1);
+                }
+                ctx.stroke();
+                // Terminal dot
+                ctx.fillStyle = `rgba(${r},${g},${b},${alpha * 1.8})`;
+                ctx.beginPath();
+                if (this.horiz) ctx.arc(this.x1 + this.len1, this.y1 + this.len2, 1.5, 0, Math.PI * 2);
+                else ctx.arc(this.x1 + this.len2, this.y1 + this.len1, 1.5, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        const circuitTraces = Array.from({ length: CIRCUIT_COUNT }, () => new CircuitTrace());
+
+        // -- Dot grid overlay (very subtle) --
+        function drawDotGrid(r, g, b) {
+            const spacing = 55;
+            const dotR = 0.8;
+            ctx.fillStyle = `rgba(${r},${g},${b},0.055)`;
+            for (let x = spacing / 2; x < techCanvas.width; x += spacing) {
+                for (let y = spacing / 2; y < techCanvas.height; y += spacing) {
+                    ctx.beginPath();
+                    ctx.arc(x, y, dotR, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+        }
+
+        // -- Main animation loop --
+        let animT = 0;
+        let lastAccentRgb = getAccentRgb();
+
+        // Re-read accent color when theme changes
+        const themeObserver = new MutationObserver(() => {
+            lastAccentRgb = getAccentRgb();
+        });
+        themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class', 'data-theme'] });
+        // Also observe body for data-theme attribute
+        themeObserver.observe(document.body, { attributes: true });
+
+        function animateCanvas() {
+            animT++;
+            const [r, g, b] = lastAccentRgb;
+
+            ctx.clearRect(0, 0, techCanvas.width, techCanvas.height);
+
+            // 1. Dot grid (bottom layer)
+            drawDotGrid(r, g, b);
+
+            // 2. Update + draw circuit traces
+            circuitTraces.forEach(trace => {
+                trace.update();
+                trace.draw(r, g, b);
+            });
+
+            // 3. Update particles
+            particles.forEach(p => p.update(animT));
+
+            // 4. Draw connections between nearby particles
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < MAX_CONNECT_DIST) {
+                        const lineOpacity = (1 - dist / MAX_CONNECT_DIST) * 0.18;
+                        ctx.save();
+                        ctx.strokeStyle = `rgba(${r},${g},${b},${lineOpacity})`;
+                        ctx.lineWidth = 0.6;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                        ctx.restore();
+                    }
+                }
+            }
+
+            // 5. Draw particles on top
+            particles.forEach(p => p.draw(r, g, b));
+
+            requestAnimationFrame(animateCanvas);
+        }
+        animateCanvas();
     }
 });
