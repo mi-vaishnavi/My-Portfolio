@@ -615,12 +615,20 @@ header.scrolled {
     font-size: 1.5rem;
     color: var(--text-secondary);
     min-height: 2.2rem;
-    margin-bottom: 36px;
+    margin-bottom: 24px;
     font-weight: 400;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
+}
+
+.hero-para {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 680px;
+    margin: 0 auto 32px auto;
 }
 
 .typed-text {
@@ -840,7 +848,7 @@ header.scrolled {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
@@ -872,9 +880,30 @@ header.scrolled {
 .project-desc {
     font-size: 0.92rem;
     color: var(--text-secondary);
-    margin-bottom: 20px;
-    flex-grow: 1;
+    margin-bottom: 16px;
     line-height: 1.6;
+}
+
+.project-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    flex-grow: 1;
+}
+
+.project-highlights li {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.4;
+}
+
+.project-highlights li span {
+    color: var(--accent-1);
+    font-weight: 600;
 }
 
 .project-tags {
@@ -882,6 +911,26 @@ header.scrolled {
     flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 24px;
+}
+
+.project-screenshot {
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    border: 1px solid var(--border-color);
+}
+
+.project-screenshot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.project-card:hover .project-screenshot img {
+    transform: scale(1.03);
 }
 
 .project-links {
@@ -1318,6 +1367,9 @@ footer {
    12. RESPONSIVE DESIGN (MEDIA QUERIES)
    ========================================== */
 @media (max-width: 992px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
     .hero-title {
         font-size: 3.2rem;
     }

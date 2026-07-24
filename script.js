@@ -123,10 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     const typedOutput = document.getElementById('typed-output');
     const greetings = [
-        "Crafting intelligent full-stack solutions.",
-        "Solving complex algorithmic puzzles.",
-        "Bridging AI capability with fluid user experience.",
-        "Building robust, production-grade applications."
+        "Software Engineer",
+        "Java & Spring Boot Developer",
+        "Backend Engineer",
+        "Full Stack Developer",
+        "AI/ML Enthusiast",
+        "FastAPI Developer"
     ];
     let greetIndex = 0;
     let charIndex = 0;
@@ -238,44 +240,160 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                 case 'help':
                     responseBlock.innerHTML = `
-                        <div style="font-weight: 600; color: var(--accent-1); margin-bottom: 6px;">Available Profile Commands:</div>
-                        <span class="terminal-green">about</span>    - Prints a detailed professional introduction.<br>
-                        <span class="terminal-green">skills</span>   - Displays engineering expertise levels.<br>
-                        <span class="terminal-green">projects</span> - Summarizes featured projects.<br>
-                        <span class="terminal-green">clear</span>    - Clears the console output screen.<br>
-                        <span class="terminal-green">secret</span>   - Run a secure core authentication sequence. 🚀
+                        <div style="font-weight: 600; color: var(--accent-1); margin-bottom: 8px;">Available commands:</div>
+                        <span class="terminal-green">about</span>       &mdash; Professional introduction<br>
+                        <span class="terminal-green">skills</span>      &mdash; Technical skills by category<br>
+                        <span class="terminal-green">projects</span>    &mdash; Featured engineering projects<br>
+                        <span class="terminal-green">experience</span>  &mdash; Work experience summary<br>
+                        <span class="terminal-green">internship</span>  &mdash; Current internship details<br>
+                        <span class="terminal-green">education</span>   &mdash; Academic background<br>
+                        <span class="terminal-green">opensource</span>  &mdash; Open-source contributions<br>
+                        <span class="terminal-green">techstack</span>   &mdash; Full technology stack<br>
+                        <span class="terminal-green">resume</span>      &mdash; Open resume PDF<br>
+                        <span class="terminal-green">github</span>      &mdash; Open GitHub profile<br>
+                        <span class="terminal-green">linkedin</span>    &mdash; Open LinkedIn profile<br>
+                        <span class="terminal-green">contact</span>     &mdash; Contact information<br>
+                        <span class="terminal-green">clear</span>       &mdash; Clear terminal output<br><br>
+                        <span style="color: var(--text-secondary); font-size:0.8rem;">Tip: Try typing <span class="terminal-yellow">secret</span> for a surprise.</span>
                     `;
                     break;
                     
                 case 'about':
                     responseBlock.innerHTML = `
-                        I am <span class="terminal-yellow" style="font-weight:600;">Majoju Vaishnavi</span>, a final-year Computer Science & Engineering student at the 
-                        <span class="terminal-accent">University College of Engineering, Osmania University (UCE, OU)</span>, graduating in 2027 (CGPA: 9.0/10).<br><br>
-                        Currently, I am working as a <span class="terminal-pink" style="font-weight:600;">Mobile Application Build Intern at IRA labs</span>, where I build cross-platform mobile application prototypes and integrate AI tooling into mobile build pipelines using Flutter and React Native framework architectures.<br><br>
-                        My core focus lies in combining solid Computer Science fundamentals (DSA & OOP) with full-stack and mobile solutions to engineer high-performance, production-grade applications.
+                        <span class="terminal-yellow" style="font-weight:600;">$ whoami</span><br><br>
+                        <b>Majoju Vaishnavi</b> &mdash; Software Engineering student &amp; Backend-focused Developer.<br><br>
+                        I am a final-year BE CSE student at <span class="terminal-accent">University College of Engineering, Osmania University</span> (CGPA: 9.4/10, graduating 2027).<br><br>
+                        I am passionate about building <b>scalable backend systems</b>, <b>AI-integrated applications</b>, and <b>modern web interfaces</b>. I enjoy solving algorithmic problems and translating CS fundamentals into production-quality software.<br><br>
+                        Currently interning at <span class="terminal-pink" style="font-weight:600;">IRA Labs</span> as a Mobile Application Intern, working with React Native and FastAPI.
                     `;
                     break;
                     
                 case 'skills':
                     responseBlock.innerHTML = `
-                        <div style="font-weight: 600; color: var(--accent-1); margin-bottom: 8px;">Technical Skills:</div>
-                        <span class="terminal-yellow">Proficient:</span> Java, Python, JavaScript, React.js, Next.js, DSA & OOP, Git/GitHub, REST APIs<br>
-                        <span class="terminal-yellow">Familiar:</span>   Node.js, Express.js, TailwindCSS, MongoDB, MySQL, SQLite, Flask, OS, Networks, Figma<br>
-                        <span class="terminal-yellow">Exploring:</span>  Generative AI (Gemini API), RAG Architectures, Flutter, React Native
+                        <div style="font-weight: 600; color: var(--accent-1); margin-bottom: 8px;">Technical Skills</div>
+                        <span class="terminal-yellow">[Languages]</span>  Java &middot; Python &middot; JavaScript (ES6+) &middot; SQL<br>
+                        <span class="terminal-yellow">[Backend]  </span>  Spring Boot &middot; FastAPI &middot; Node.js &middot; REST APIs<br>
+                        <span class="terminal-yellow">[Frontend] </span>  React.js &middot; HTML5 &middot; CSS3 &middot; Tailwind CSS<br>
+                        <span class="terminal-yellow">[Databases]</span>  PostgreSQL &middot; MongoDB &middot; MySQL &middot; SQLite<br>
+                        <span class="terminal-yellow">[Cloud]    </span>  Docker &middot; Render &middot; AWS (learning) &middot; GCP (learning)<br>
+                        <span class="terminal-yellow">[AI/ML]    </span>  Scikit-Learn &middot; XGBoost &middot; Gemini API &middot; RAG<br>
+                        <span class="terminal-yellow">[Mobile]   </span>  React Native &middot; Flutter &middot; Android SDK<br>
+                        <span class="terminal-yellow">[Tools]    </span>  Git &middot; GitHub &middot; Postman &middot; VS Code &middot; IntelliJ IDEA
                     `;
                     break;
                     
                 case 'projects':
                     responseBlock.innerHTML = `
-                        <div style="font-weight: 600; color: var(--accent-1); margin-bottom: 8px;">Featured Projects:</div>
-                        1. <span class="terminal-accent" style="font-weight:600;">NexisAI — Multi-Agent Orchestrator</span> (AI & ML)<br>
-                        &nbsp;&nbsp;&nbsp;An orchestrator that coordinates multi-agent LLM teams using Python and Node.js.<br>
-                        2. <span class="terminal-accent" style="font-weight:600;">PCOS Tracker & Personalization Platform</span> (AI & ML)<br>
-                        &nbsp;&nbsp;&nbsp;Clinical risk evaluation with dynamically generated symptom-driven nutrition and exercise plans. Tech: Python, React, MongoDB.<br>
-                        3. <span class="terminal-accent" style="font-weight:600;">SnapLink — URL Shortener</span> (Web Applications)<br>
-                        &nbsp;&nbsp;&nbsp;A full-stack URL shortening service features Base62 encoding and token-bucket rate limiting. Tech: Java, Spring Boot, PostgreSQL, JavaScript.<br>
-                        4. <span class="terminal-accent" style="font-weight:600;">Women Safety App</span> (Mobile Solutions)<br>
-                        &nbsp;&nbsp;&nbsp;Crisis monitor providing voice trigger SOS and background GPS mapping. Tech: Java, Android SDK, Flask.
+                        <div style="font-weight: 600; color: var(--accent-1); margin-bottom: 8px;">Featured Projects</div>
+                        1. <span class="terminal-accent" style="font-weight:600;">PCOS Tracker &amp; Personalization Platform</span><br>
+                        &nbsp;&nbsp;&nbsp;A full-stack clinical decision support platform that predicts PCOS risk and generates personalized wellness recommendations using AI. Stack: FastAPI &middot; React.js &middot; MongoDB<br><br>
+                        2. <span class="terminal-accent" style="font-weight:600;">Women Safety App</span><br>
+                        &nbsp;&nbsp;&nbsp;A voice-activated safety application designed to detect keywords in the background and dispatch location tracking details. Stack: Java &middot; Android SDK &middot; Flask &middot; SQLite<br><br>
+                        3. <span class="terminal-accent" style="font-weight:600;">Multi-Tenant SaaS Backend</span><br>
+                        &nbsp;&nbsp;&nbsp;A production-grade multi-tenant subscription backend engine featuring strict data isolation and scalable billing infrastructure. Stack: Java &middot; Spring Boot &middot; PostgreSQL &middot; Docker &middot; JWT Auth<br><br>
+                        4. <span class="terminal-accent" style="font-weight:600;">NexisAI &mdash; Multi-Agent Orchestrator</span><br>
+                        &nbsp;&nbsp;&nbsp;A multi-agent framework orchestrator designed to run automated task delegation and context syncing. Stack: Python &middot; RAG &middot; Node.js &middot; LLM APIs<br><br>
+                        5. <span class="terminal-accent" style="font-weight:600;">ScribeAI &mdash; Technical Interview Prep</span><br>
+                        &nbsp;&nbsp;&nbsp;An interactive browser coaching simulator built to grade user answers during virtual technical practice runs. Stack: JavaScript &middot; HTML5 &middot; CSS Grid &middot; RegEx<br><br>
+                        6. <span class="terminal-accent" style="font-weight:600;">SnapLink &mdash; URL Shortener</span><br>
+                        &nbsp;&nbsp;&nbsp;A high-performance URL shortener engine equipped with custom aliases and custom rate limit protections. Stack: Java &middot; Spring Boot &middot; PostgreSQL &middot; JavaScript
+                    `;
+                    break;
+
+                case 'experience':
+                    responseBlock.innerHTML = `
+                        <div style="font-weight: 600; color: var(--accent-1); margin-bottom: 8px;">Work Experience</div>
+                        <span class="terminal-yellow" style="font-weight:600;">Mobile Application Intern</span> &mdash; IRA Labs<br>
+                        <span style="color: var(--text-secondary);">May 2026 &mdash; Present</span><br><br>
+                        &bull; Developing React Native features with AI-assisted workflows.<br>
+                        &bull; Building and integrating FastAPI backend endpoints for the mobile client.<br>
+                        &bull; Researching cloud deployment strategies on AWS and GCP.<br>
+                        &bull; Contributing to Android/iOS deployment and app store submission pipelines.
+                    `;
+                    break;
+
+                case 'internship':
+                    responseBlock.innerHTML = `
+                        <div style="font-weight: 600; color: var(--accent-1); margin-bottom: 8px;">Current Internship</div>
+                        <span class="terminal-yellow">Role       :</span> Mobile Application Intern<br>
+                        <span class="terminal-yellow">Company    :</span> IRA Labs<br>
+                        <span class="terminal-yellow">Duration   :</span> May 2026 &mdash; Present<br>
+                        <span class="terminal-yellow">Stack      :</span> React Native &middot; FastAPI &middot; AWS &middot; GCP &middot; Android &middot; iOS<br><br>
+                        <span class="terminal-yellow">Responsibilities:</span><br>
+                        &bull; Building mobile UI components in React Native using AI-assisted development.<br>
+                        &bull; Designing and integrating FastAPI endpoints for backend-mobile communication.<br>
+                        &bull; Researching cloud deployment options for mobile application backends.<br>
+                        &bull; Working on Android and iOS deployment pipelines including app signing.
+                    `;
+                    break;
+
+                case 'education':
+                    responseBlock.innerHTML = `
+                        <div style="font-weight: 600; color: var(--accent-1); margin-bottom: 8px;">Education</div>
+                        <span class="terminal-yellow">Degree     :</span> Bachelor of Engineering &mdash; Computer Science & Engineering<br>
+                        <span class="terminal-yellow">Institution:</span> University College of Engineering, Osmania University (UCE, OU)<br>
+                        <span class="terminal-yellow">Duration   :</span> 2023 &mdash; 2027<br>
+                        <span class="terminal-yellow">CGPA       :</span> 9.4 / 10<br><br>
+                        <span class="terminal-yellow">Core Subjects:</span><br>
+                        Data Structures &middot; Algorithms &middot; Operating Systems &middot; Computer Networks &middot; DBMS &middot; Software Engineering<br><br>
+                        Actively building full-stack and AI projects to apply coursework in real engineering contexts.
+                    `;
+                    break;
+
+                case 'opensource':
+                    responseBlock.innerHTML = `
+                        <div style="font-weight: 600; color: var(--accent-1); margin-bottom: 8px;">Open Source Contributions</div>
+                        &bull; <span class="terminal-accent">accordproject/template-playground</span> &mdash; <a href="https://github.com/accordproject/template-playground/pull/702" target="_blank" style="color:var(--accent-1); text-decoration:underline;">PR #702</a><br>
+                        &nbsp;&nbsp;&nbsp;Redesigned the default Service Agreement template for a realistic legal use case.<br><br>
+                        &bull; <span class="terminal-accent">accordproject/techdocs</span> &mdash; <a href="https://github.com/accordproject/techdocs/pull/485" target="_blank" style="color:var(--accent-1); text-decoration:underline;">PR #485</a><br>
+                        &nbsp;&nbsp;&nbsp;Fixed broken VS Code extension links in technical documentation, improving developer onboarding.<br><br>
+                        <span style="color: var(--text-secondary); font-size: 0.8rem;">GitHub: <a href="https://github.com/mi-vaishnavi" target="_blank" style="color:var(--accent-1); text-decoration:underline;">github.com/mi-vaishnavi</a></span>
+                    `;
+                    break;
+
+                case 'techstack':
+                    responseBlock.innerHTML = `
+                        <div style="font-weight: 600; color: var(--accent-1); margin-bottom: 8px;">Full Technology Stack</div>
+                        <span class="terminal-green"># Languages</span><br>
+                        Java &middot; Python &middot; JavaScript &middot; SQL<br><br>
+                        <span class="terminal-green"># Backend</span><br>
+                        Spring Boot 3 &middot; FastAPI &middot; Node.js &middot; Express.js &middot; Flask &middot; REST APIs &middot; JWT Auth<br><br>
+                        <span class="terminal-green"># Frontend</span><br>
+                        React.js &middot; HTML5 &middot; CSS3 &middot; Tailwind CSS<br><br>
+                        <span class="terminal-green"># Databases</span><br>
+                        PostgreSQL &middot; MongoDB &middot; MySQL &middot; SQLite<br><br>
+                        <span class="terminal-green"># Cloud &amp; DevOps</span><br>
+                        Docker &middot; Git &middot; GitHub &middot; Render &middot; AWS (learning) &middot; GCP (learning)<br><br>
+                        <span class="terminal-green"># AI / ML</span><br>
+                        Scikit-Learn &middot; XGBoost &middot; Gemini API &middot; RAG Pipelines<br><br>
+                        <span class="terminal-green"># Mobile</span><br>
+                        React Native &middot; Flutter &middot; Android SDK
+                    `;
+                    break;
+
+                case 'resume':
+                    window.open('assets/my_resume.pdf', '_blank');
+                    responseBlock.innerHTML = `<span class="terminal-green">[OK]</span> Opening resume in a new tab...`;
+                    break;
+
+                case 'github':
+                    window.open('https://github.com/mi-vaishnavi', '_blank');
+                    responseBlock.innerHTML = `<span class="terminal-green">[OK]</span> Opening GitHub profile: <a href="https://github.com/mi-vaishnavi" target="_blank" style="color:var(--accent-1);">github.com/mi-vaishnavi</a>`;
+                    break;
+
+                case 'linkedin':
+                    window.open('https://www.linkedin.com/in/majoju-vaishnavi-244945299/', '_blank');
+                    responseBlock.innerHTML = `<span class="terminal-green">[OK]</span> Opening LinkedIn profile...`;
+                    break;
+
+                case 'contact':
+                    responseBlock.innerHTML = `
+                        <div style="font-weight: 600; color: var(--accent-1); margin-bottom: 8px;">Contact Information</div>
+                        <span class="terminal-yellow">Email    :</span> <a href="mailto:majojuvaishnavi@gmail.com" style="color:var(--accent-1);">majojuvaishnavi@gmail.com</a><br>
+                        <span class="terminal-yellow">GitHub   :</span> <a href="https://github.com/mi-vaishnavi" target="_blank" style="color:var(--accent-1);">github.com/mi-vaishnavi</a><br>
+                        <span class="terminal-yellow">LinkedIn :</span> <a href="https://www.linkedin.com/in/majoju-vaishnavi-244945299/" target="_blank" style="color:var(--accent-1);">linkedin.com/in/majoju-vaishnavi</a><br>
+                        <span class="terminal-yellow">Location :</span> Hyderabad, Telangana, India<br><br>
+                        Open to: SWE roles &middot; Backend internships &middot; Open source &middot; Full-stack collaboration
                     `;
                     break;
                     
@@ -285,17 +403,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                 case 'secret':
                     responseBlock.innerHTML = `
-                        <div class="terminal-yellow">Initializing secure authentication handshakes...</div>
+                        <div class="terminal-yellow">Initializing authentication sequence...</div>
                         <div style="font-family: monospace; font-size: 0.75rem; color: #10b981; margin: 6px 0;">
-                            [SYSTEM] Loading core dependencies... OK<br>
-                            [SYSTEM] Querying interview selection matrices... 100%<br>
-                            [SYSTEM] Injecting high-performance engineering values... COMPLETE
+                            [SYSTEM] Loading candidate profile... OK<br>
+                            [SYSTEM] Evaluating technical depth... PASS<br>
+                            [SYSTEM] Checking open-source activity... PASS<br>
+                            [SYSTEM] Running final assessment... COMPLETE
                         </div>
                         <div style="border: 1px dashed var(--accent-1); padding: 12px; border-radius: 6px; background: rgba(var(--accent-1-rgb), 0.05); text-align: center;">
-                            <span class="terminal-pink" style="font-weight:800; font-size: 1.1rem;">EASTER EGG DETECTED! 🌟</span><br>
-                            <span style="color: #fff; font-size: 0.85rem;">Hiring Manager Access Token:</span><br>
-                            <span class="terminal-green" style="font-family:var(--font-mono); font-weight:700; font-size:1rem; letter-spacing:1px;">SELECT_VAISHNAVI_2026</span><br>
-                            <span style="color: var(--text-secondary); font-size: 0.75rem; display:block; margin-top:6px;">Result: Perfect match for Software & Full-Stack engineering roles.</span>
+                            <span class="terminal-pink" style="font-weight:800; font-size: 1.1rem;">EASTER EGG UNLOCKED 🌟</span><br>
+                            <span style="color: #fff; font-size: 0.85rem;">Hiring Manager Token:</span><br>
+                            <span class="terminal-green" style="font-family:var(--font-mono); font-weight:700; font-size:1rem; letter-spacing:1px;">HIRE_VAISHNAVI_2026</span><br>
+                            <span style="color: var(--text-secondary); font-size: 0.75rem; display:block; margin-top:6px;">Result: Strong match for backend and full-stack engineering roles.</span>
                         </div>
                     `;
                     break;
