@@ -400,23 +400,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     termOutput.innerHTML = '';
                     return;
                     
-                case 'secret':
-                    responseBlock.innerHTML = `
-                        <div class="terminal-yellow">Initializing authentication sequence...</div>
-                        <div style="font-family: monospace; font-size: 0.75rem; color: #10b981; margin: 6px 0;">
-                            [SYSTEM] Loading candidate profile... OK<br>
-                            [SYSTEM] Evaluating technical depth... PASS<br>
-                            [SYSTEM] Checking open-source activity... PASS<br>
-                            [SYSTEM] Running final assessment... COMPLETE
+                case 'secret':          
+                responseBlock.innerHTML = `
+                    <div class="terminal-yellow">Developer mode enabled...</div>
+
+                    <div style="font-family: monospace; font-size:0.8rem; color:#10b981; margin:10px 0;">
+                        [SYSTEM] Portfolio integrity........OK<br>
+                        [SYSTEM] Projects indexed..........6<br>
+                        [SYSTEM] GitHub repositories.......Loaded<br>
+                        [SYSTEM] Hidden command discovered. ✔
+                    </div>
+
+                    <div style="border:1px dashed var(--accent-1); padding:12px; border-radius:6px; background:rgba(var(--accent-1-rgb),0.05);">
+                        <div class="terminal-pink" style="font-weight:700;">
+                            🎉 Easter Egg Unlocked
                         </div>
-                        <div style="border: 1px dashed var(--accent-1); padding: 12px; border-radius: 6px; background: rgba(var(--accent-1-rgb), 0.05); text-align: center;">
-                            <span class="terminal-pink" style="font-weight:800; font-size: 1.1rem;">EASTER EGG UNLOCKED 🌟</span><br>
-                            <span style="color: #fff; font-size: 0.85rem;">Hiring Manager Token:</span><br>
-                            <span class="terminal-green" style="font-family:var(--font-mono); font-weight:700; font-size:1rem; letter-spacing:1px;">HIRE_VAISHNAVI_2026</span><br>
-                            <span style="color: var(--text-secondary); font-size: 0.75rem; display:block; margin-top:6px;">Result: Strong match for backend and full-stack engineering roles.</span>
-                        </div>
-                    `;
-                    break;
+
+                        <p style="margin-top:10px; font-size:0.9rem;">
+                            Thanks for exploring beyond the UI.<br>
+                            Curiosity is always appreciated.
+                        </p>
+                    </div>
+                `;
+                break;
                     
                 default:
                     responseBlock.innerHTML = `
