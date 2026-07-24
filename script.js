@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span class="terminal-yellow" style="font-weight:600;">$ whoami</span><br><br>
                         <b>Majoju Vaishnavi</b> &mdash; Software Engineering student &amp; Backend-focused Developer.<br><br>
                         I am a final-year BE CSE student at <span class="terminal-accent">University College of Engineering, Osmania University</span> (CGPA: 9.4/10, graduating 2027).<br><br>
-                        I am passionate about building <b>scalable backend systems</b>, <b>AI-integrated applications</b>, and <b>modern web interfaces</b>. I enjoy solving algorithmic problems and translating CS fundamentals into production-quality software.<br><br>
+                        I am passionate about building <b>scalable systems</b>, <b>AI-integrated applications</b>, and <b>modern web interfaces</b>. I enjoy solving algorithmic problems and translating CS fundamentals into production-quality software.<br><br>
                         Currently interning at <span class="terminal-pink" style="font-weight:600;">IRA Labs</span> as a Mobile Application Intern, working with React Native and FastAPI.
                     `;
                     break;
@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span class="terminal-yellow">[Backend]  </span>  Spring Boot &middot; FastAPI &middot; Node.js &middot; REST APIs<br>
                         <span class="terminal-yellow">[Frontend] </span>  React.js &middot; HTML5 &middot; CSS3 &middot; Tailwind CSS<br>
                         <span class="terminal-yellow">[Databases]</span>  PostgreSQL &middot; MongoDB &middot; MySQL &middot; SQLite<br>
-                        <span class="terminal-yellow">[Cloud]    </span>  Docker &middot; Render &middot; AWS (learning) &middot; GCP (learning)<br>
+                        <span class="terminal-yellow">[Cloud]    </span>  Docker &middot; Render &middot; AWS (learning) &middot;<br>
                         <span class="terminal-yellow">[AI/ML]    </span>  Scikit-Learn &middot; XGBoost &middot; Gemini API &middot; RAG<br>
                         <span class="terminal-yellow">[Mobile]   </span>  React Native &middot; Flutter &middot; Android SDK<br>
                         <span class="terminal-yellow">[Tools]    </span>  Git &middot; GitHub &middot; Postman &middot; VS Code &middot; IntelliJ IDEA
@@ -292,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         3. <span class="terminal-accent" style="font-weight:600;">Multi-Tenant SaaS Backend</span><br>
                         &nbsp;&nbsp;&nbsp;A production-grade multi-tenant subscription backend engine featuring strict data isolation and scalable billing infrastructure. Stack: Java &middot; Spring Boot &middot; PostgreSQL &middot; Docker &middot; JWT Auth<br><br>
                         4. <span class="terminal-accent" style="font-weight:600;">NexisAI &mdash; Multi-Agent Orchestrator</span><br>
-                        &nbsp;&nbsp;&nbsp;A multi-agent framework orchestrator designed to run automated task delegation and context syncing. Stack: Python &middot; RAG &middot; Node.js &middot; LLM APIs<br><br>
+                        &nbsp;&nbsp;&nbsp;A multi-agent framework orchestrator designed to run automated task delegation and context syncing. Stack: Python &middot; &middot; Node.js &middot; LLM APIs<br><br>
                         5. <span class="terminal-accent" style="font-weight:600;">ScribeAI &mdash; Technical Interview Prep</span><br>
                         &nbsp;&nbsp;&nbsp;An interactive browser coaching simulator built to grade user answers during virtual technical practice runs. Stack: JavaScript &middot; HTML5 &middot; CSS Grid &middot; RegEx<br><br>
                         6. <span class="terminal-accent" style="font-weight:600;">SnapLink &mdash; URL Shortener</span><br>
@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span style="color: var(--text-secondary);">May 2026 &mdash; Present</span><br><br>
                         &bull; Developing React Native features with AI-assisted workflows.<br>
                         &bull; Building and integrating FastAPI backend endpoints for the mobile client.<br>
-                        &bull; Researching cloud deployment strategies on AWS and GCP.<br>
+                        &bull; Researching cloud deployment strategies on AWS.<br>
                         &bull; Contributing to Android/iOS deployment and app store submission pipelines.
                     `;
                     break;
@@ -318,10 +318,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span class="terminal-yellow">Role       :</span> Mobile Application Intern<br>
                         <span class="terminal-yellow">Company    :</span> IRA Labs<br>
                         <span class="terminal-yellow">Duration   :</span> May 2026 &mdash; Present<br>
-                        <span class="terminal-yellow">Stack      :</span> React Native &middot; FastAPI &middot; AWS &middot; GCP &middot; Android &middot; iOS<br><br>
+                        <span class="terminal-yellow">Stack      :</span> React Native &middot; FastAPI &middot; AWS &middot; Android &middot; iOS<br><br>
                         <span class="terminal-yellow">Responsibilities:</span><br>
                         &bull; Building mobile UI components in React Native using AI-assisted development.<br>
-                        &bull; Designing and integrating FastAPI endpoints for backend-mobile communication.<br>
                         &bull; Researching cloud deployment options for mobile application backends.<br>
                         &bull; Working on Android and iOS deployment pipelines including app signing.
                     `;
@@ -363,9 +362,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span class="terminal-green"># Databases</span><br>
                         PostgreSQL &middot; MongoDB &middot; MySQL &middot; SQLite<br><br>
                         <span class="terminal-green"># Cloud &amp; DevOps</span><br>
-                        Docker &middot; Git &middot; GitHub &middot; Render &middot; AWS (learning) &middot; GCP (learning)<br><br>
+                        Docker &middot; Git &middot; GitHub &middot; Render &middot; AWS (learning) &middot;<br><br>
                         <span class="terminal-green"># AI / ML</span><br>
-                        Scikit-Learn &middot; XGBoost &middot; Gemini API &middot; RAG Pipelines<br><br>
+                        Scikit-Learn &middot; XGBoost &middot; Gemini API &middot; Pipelines<br><br>
                         <span class="terminal-green"># Mobile</span><br>
                         React Native &middot; Flutter &middot; Android SDK
                     `;
